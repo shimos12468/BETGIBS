@@ -4,11 +4,24 @@ using UnityEngine;
 using System.Linq;
 public class DoodleController : MonoBehaviour
 {
+
+
+    public static DoodleController _instance;
     public LineRenderer lineRenderer;
+    public List<BoxCollider2D> _greenAreas;
+    public List<GameObject> _meshes;
+    public int lengthLimit=100;
+    public int totalDrawnPointsLimit = 1000;
+    public int totalDrawnPoints;
     public GameObject linePrefab;
     public float newPointThreshold = 0.1f;
     private bool _dragging = false;
-    
+    Vector3 mousePosition;
+    private void Start()
+    {
+        if(_instance==null)_instance= this; 
+        else { Destroy(gameObject); }
+    }
     void SpawnLine()
     {
         GameObject line = Instantiate(linePrefab);
@@ -27,6 +40,9 @@ public class DoodleController : MonoBehaviour
         }
         center /= line.GetComponent<EdgeCollider2D>().points.Length;
         line.GetComponent<Rigidbody2D>().centerOfMass = center;
+        line.GetComponent<Rigidbody2D>().isKinematic = true;
+
+        _meshes.Add(line);
     }
 
 
@@ -34,8 +50,11 @@ public class DoodleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
 
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        CanDraw();
         mousePosition.z = 0f;
         if (Input.GetMouseButtonDown(0))
         {
@@ -55,8 +74,34 @@ public class DoodleController : MonoBehaviour
         {
             _dragging = false;
             SpawnLine();
+            totalDrawnPoints += lineRenderer.positionCount - 1;
             lineRenderer.positionCount = 0;
         }
 
+    }
+
+   
+
+    public void CanDraw()
+    {
+        
+        foreach (var area in _greenAreas)
+        {
+            Bounds bounds = area.bounds;
+            print(bounds);
+            Vector3 mousePosition1 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //print(mousePosition1);
+            if (bounds.Contains(mousePosition1))
+            {
+                Debug.Log("Mouse is inside BoxCollider2D bounds");
+            }
+        }
+    }
+    public void SetDoodleKinamatic()
+    {
+        foreach(var mesh in _meshes)
+        {
+            mesh.GetComponent<Rigidbody2D>().isKinematic = false;
+        }
     }
 }
