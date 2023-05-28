@@ -6,15 +6,25 @@ public class BarrelBehaviour : MonoBehaviour
 {
     public GameObject arrowPrefab;  
     public float shootingVelocity = 10;
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    public float cooldown = 4;
+    public float time =4;
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        print("hedddllo");
-        GameObject Arrow = Instantiate(arrowPrefab);
-        Arrow.transform.position = transform.position;
-        SetArrow(Arrow);
+        if (time >= cooldown)
+        {
+            GameObject Arrow = Instantiate(arrowPrefab);
+            Arrow.transform.position = transform.position;
+            SetArrow(Arrow);
+            time = 0;
+        }
+        
+
     }
 
+    private void Update()
+    {
+        time+=Time.deltaTime;
+    }
     public void SetArrow(GameObject Arrow)
     {
        

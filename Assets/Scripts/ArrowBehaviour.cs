@@ -22,5 +22,9 @@ public class ArrowBehaviour : MonoBehaviour
         move = true;   
     }
 
-   
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        move = false;   
+    }
 }
