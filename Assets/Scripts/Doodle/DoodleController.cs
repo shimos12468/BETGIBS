@@ -109,10 +109,10 @@ public class DoodleController : MonoBehaviour
         foreach (var area in _greenAreas)
         {
             Bounds bounds = area.bounds;
-            print(bounds);
+            
             Vector3 mousePosition1 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition1.z = 0f;
-            print(mousePosition1);
+            
             if (bounds.Contains(mousePosition1))
             {
 

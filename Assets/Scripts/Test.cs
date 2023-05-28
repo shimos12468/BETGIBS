@@ -20,19 +20,7 @@ public class Test : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            foreach (var rb in _rigidbodies)
-            {
-                rb.isKinematic = false;
-            }
-        }
-        foreach (var hj in _hingeJoints)
-        {
-            if (hj == null)
-            {
-                Debug.Log("Broken");
-            }
-        }
+        
+      
     }
 }

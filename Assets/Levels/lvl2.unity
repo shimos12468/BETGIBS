@@ -2164,6 +2164,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bow (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7882185043829672598, guid: 9a8cd8dfed6d6494b85e4490172e4ec8, type: 3}
+      propertyPath: shootingVelocity
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7882185043829672599, guid: 9a8cd8dfed6d6494b85e4490172e4ec8, type: 3}
       propertyPath: m_RootOrder
       value: 2
