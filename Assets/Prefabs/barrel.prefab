@@ -101,6 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 8251467963572998595, guid: 248c258c623e80d41a4f0b5de4d31e35, type: 3}
   shootingVelocity: 15
+  cooldown: 4
+  time: 4
 --- !u!61 &835909454398003116
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -146,5 +148,5 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0

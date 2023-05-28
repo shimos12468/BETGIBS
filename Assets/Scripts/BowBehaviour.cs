@@ -15,14 +15,6 @@ public class BowBehaviour : MonoBehaviour
     private int shots = 0;
     private bool instantiateArrow = true;
 
-    private void OnGUI()
-    {
-        if (GUILayout.Button("Shoot"))
-        {
-            StartShooting();
-        }
-    }
-
     void Start()
     {
         firstLine.SetPosition(0, firstLine.transform.position);

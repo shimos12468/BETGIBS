@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class AutoLoad : MonoBehaviour
 {
+    public string NextLevel;
    public void LoadFirstLevel()
     {
-        SceneManager.LoadScene("lvl1");
+        SceneManager.LoadScene(NextLevel);
     }
 }

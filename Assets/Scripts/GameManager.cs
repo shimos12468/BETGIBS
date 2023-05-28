@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public RagdollController[] ragdolls;
     public string NextLevelName;
     public float levelClearTime = 5f;
+    public GameObject PassedText;
+    public GameObject FailedText;
 
 
     // Start is called before the first frame update
@@ -17,6 +19,11 @@ public class GameManager : MonoBehaviour
     {
         if (_instance == null) _instance = this;
         else { Destroy(gameObject); }
+    }
+
+    private void OnDestroy()
+    {
+        _instance = null;
     }
 
     void Start()
@@ -52,6 +59,11 @@ public class GameManager : MonoBehaviour
         Invoke("CheckWin", 5f);
     }
 
+    public void LoadNextLevel()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(NextLevelName);
+    }
+
     public void CheckWin() {
         bool won = true;
         foreach (var ragdoll in ragdolls)
@@ -59,10 +71,14 @@ public class GameManager : MonoBehaviour
             if (ragdoll.IsBroken()) won = false;
         }
         if (won) {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(NextLevelName);
+            PassedText.SetActive(true);
+            Debug.Log("Herer");
+            Invoke("LoadNextLevel", 2.0f);
         }
         else {
-            ResetLevel();
+            FailedText.SetActive(true);
+            Debug.Log("Herer");
+            Invoke("ResetLevel", 2.0f);
         }
     }
 
