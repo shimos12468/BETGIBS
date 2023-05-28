@@ -38,7 +38,7 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 0
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -91,6 +91,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -409,20 +421,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      hand_l: 1383580105
-      leg_2r: 1555302041
-      arm_1r: 1131948353
       arm_1l: 1094126482
-      leg_2l: -1430362619
+      arm_1r: 1131948353
+      arm_2l: 913512349
+      arm_2r: -926282751
       foot_l: -1080689224
       foot_r: 1052408147
+      hand_l: 1383580105
       hand_r: -197342561
       head: 1581176202
-      arm_2r: -926282751
-      leg_1r: 1660278846
-      torso: -1263811684
-      arm_2l: 913512349
       leg_1l: 2111269043
+      leg_1r: 1660278846
+      leg_2l: -1430362619
+      leg_2r: 1555302041
+      torso: -1263811684
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
