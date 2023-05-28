@@ -48,12 +48,12 @@ public class DoodleController : MonoBehaviour
         line.GetComponent<MeshFilter>().mesh = mesh;
 
         line.GetComponent<EdgeCollider2D>().points = points.ToList().ConvertAll(p => new Vector2(p.x, p.y)).ToArray();
-        // foreach (var point in points)
-        // {
-        //     var col = line.AddComponent<CircleCollider2D>();
-        //     col.offset = point;
-        //     col.radius = 0.1f;
-        // }
+        foreach (var point in points)
+        {
+            var col = line.AddComponent<CircleCollider2D>();
+            col.offset = point;
+            col.radius = 0.1f;
+        }
 
         line.GetComponent<Rigidbody2D>().mass = line.GetComponent<EdgeCollider2D>().points.Length;
         //setting center of mass
