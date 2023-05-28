@@ -4,28 +4,26 @@ using UnityEngine;
 
 public class ArrowBehaviour : MonoBehaviour
 {
-    public bool move =false;
-    public float speed = 10;
-    public Vector3 Direction;
-    void Start()
-    {
-        
-    }
+    public bool move = false;
+    private bool attached = false;
 
     // Update is called once per frame
     void Update()
     {
-        
-        if(move)
-        transform.right =-GetComponent<Rigidbody2D>().velocity.normalized;
+        if (move)
+        {
+            transform.right = GetComponent<Rigidbody2D>().velocity.normalized;
+        }
     }
 
 
-    public void SetMovment()
+    public void StartMovement()
     {
+        move = true;   
+    }
 
-      
-        move= true;
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
         
     }
 }

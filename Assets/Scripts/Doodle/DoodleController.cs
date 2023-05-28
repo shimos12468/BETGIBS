@@ -32,14 +32,22 @@ public class DoodleController : MonoBehaviour
         Vector3[] points = new Vector3[lineRenderer.positionCount];
         lineRenderer.GetPositions(points);
         line.GetComponent<MeshFilter>().mesh = mesh;
-        line.GetComponent<EdgeCollider2D>().points = points.ToList().ConvertAll(p => new Vector2(p.x, p.y)).ToArray();
+
+        //line.GetComponent<EdgeCollider2D>().points = points.ToList().ConvertAll(p => new Vector2(p.x, p.y)).ToArray();
+        foreach (var point in points)
+        {
+            var col = line.AddComponent<CircleCollider2D>();
+            col.offset = point;
+            col.radius = 0.1f;
+        }
+        line.GetComponent<Rigidbody2D>().mass = line.GetComponent<EdgeCollider2D>().points.Length;
         //setting center of mass
         Vector2 center = new Vector2(0, 0);
-        foreach (Vector2 point in line.GetComponent<EdgeCollider2D>().points)
+        foreach (Vector2 point in points)
         {
             center += point;
         }
-        center /= line.GetComponent<EdgeCollider2D>().points.Length;
+        center /= points.Length;
         line.GetComponent<Rigidbody2D>().centerOfMass = center;
         line.GetComponent<Rigidbody2D>().isKinematic = true;
         _meshes.Add(line);
@@ -70,8 +78,11 @@ public class DoodleController : MonoBehaviour
         else if (Input.GetMouseButtonUp(0) && _dragging)
         {
             _dragging = false;
-            SpawnLine();
-            totalDrawnPoints += lineRenderer.positionCount - 1;
+            if (lineRenderer.positionCount > 1)
+            {
+                SpawnLine();
+                totalDrawnPoints += lineRenderer.positionCount - 1;
+            }
             lineRenderer.positionCount = 0;
         }
 
