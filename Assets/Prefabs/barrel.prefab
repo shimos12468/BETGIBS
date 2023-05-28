@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 835909454398003119}
   - component: {fileID: 835909454398003116}
   - component: {fileID: 835909454398003117}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 835909454398003120}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7175154, w: 0.6965428}
+  m_LocalRotation: {x: 0, y: 0, z: -0.71751267, w: 0.6965455}
   m_LocalPosition: {x: -0.86, y: 7.98, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
@@ -100,9 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 8251467963572998595, guid: 248c258c623e80d41a4f0b5de4d31e35, type: 3}
-  arrowpoint: {fileID: 0}
-  direction: 2
-  force: 20
+  shootingVelocity: 10
 --- !u!61 &835909454398003116
 BoxCollider2D:
   m_ObjectHideFlags: 0
