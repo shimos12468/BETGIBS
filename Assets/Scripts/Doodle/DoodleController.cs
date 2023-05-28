@@ -6,11 +6,11 @@ public class DoodleController : MonoBehaviour
 {
 
 
-    public static DoodleController _instance;
+    public static DoodleController instance;
     public LineRenderer lineRenderer;
     public List<BoxCollider2D> _greenAreas;
     public List<GameObject> _meshes;
-    public int lengthLimit=100;
+    public int lengthLimit = 100;
     public int totalDrawnPointsLimit = 1000;
     public int totalDrawnPoints;
     public GameObject linePrefab;
@@ -20,8 +20,13 @@ public class DoodleController : MonoBehaviour
 
     private void Awake()
     {
-        if(_instance==null)_instance= this; 
+        if(instance==null)instance= this; 
         else { Destroy(gameObject); }
+    }
+
+    private void OnDestroy()
+    {
+        instance = null;
     }
 
     void SpawnLine()
@@ -33,13 +38,14 @@ public class DoodleController : MonoBehaviour
         lineRenderer.GetPositions(points);
         line.GetComponent<MeshFilter>().mesh = mesh;
 
-        //line.GetComponent<EdgeCollider2D>().points = points.ToList().ConvertAll(p => new Vector2(p.x, p.y)).ToArray();
-        foreach (var point in points)
-        {
-            var col = line.AddComponent<CircleCollider2D>();
-            col.offset = point;
-            col.radius = 0.1f;
-        }
+        line.GetComponent<EdgeCollider2D>().points = points.ToList().ConvertAll(p => new Vector2(p.x, p.y)).ToArray();
+        // foreach (var point in points)
+        // {
+        //     var col = line.AddComponent<CircleCollider2D>();
+        //     col.offset = point;
+        //     col.radius = 0.1f;
+        // }
+
         line.GetComponent<Rigidbody2D>().mass = line.GetComponent<EdgeCollider2D>().points.Length;
         //setting center of mass
         Vector2 center = new Vector2(0, 0);
@@ -106,11 +112,44 @@ public class DoodleController : MonoBehaviour
         return false;
     }
 
-    public void SetDoodleKinamatic()
+    public void EnableDoodlePhysics()
     {
         foreach(var mesh in _meshes)
         {
             mesh.GetComponent<Rigidbody2D>().isKinematic = false;
         }
+    }
+
+    public void DisableDoodlePhysics()
+    {
+        foreach (var mesh in _meshes)
+        {
+            mesh.GetComponent<Rigidbody2D>().isKinematic = true;
+        }
+    }
+
+    public void HideDrawingAreas() {
+        foreach (var area in _greenAreas)
+        {
+            area.gameObject.SetActive(false);
+        }
+    }
+
+    public void ShowDrawingAreas()
+    {
+        foreach (var area in _greenAreas)
+        {
+            area.gameObject.SetActive(true);
+        }
+    }
+
+    public void ResetDoodle()
+    {
+        foreach (var mesh in _meshes)
+        {
+            Destroy(mesh);
+        }
+        _meshes.Clear();
+        totalDrawnPoints = 0;
     }
 }
