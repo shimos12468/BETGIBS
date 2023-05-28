@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 5fd1d1576882a9e47a5c8ea22635d1bb
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - AURA LUXESS
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 1c024fe43daba80409564bd6b2eec56f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
