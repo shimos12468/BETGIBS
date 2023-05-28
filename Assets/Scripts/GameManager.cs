@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public BarrelBehaviour[] barrels;
     public RagdollController[] ragdolls;
     public string NextLevelName;
+    public float levelClearTime = 5f;
 
 
     // Start is called before the first frame update
