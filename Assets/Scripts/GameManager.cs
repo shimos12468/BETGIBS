@@ -20,6 +20,12 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+
+        bows = GameObject.FindObjectsOfType<BowBehaviour>();
+        barrels = GameObject.FindObjectsOfType<BarrelBehaviour>();
+        ragdolls = GameObject.FindObjectsOfType<RagdollController>();
+
+
         EnableDrawMode();
     }
 

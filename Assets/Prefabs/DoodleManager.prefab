@@ -46,6 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineRenderer: {fileID: 3060578252687222177}
+  _greenAreas:
+  - {fileID: 0}
+  _meshes: []
+  lengthLimit: 100
+  totalDrawnPointsLimit: 1000
+  totalDrawnPoints: 0
   linePrefab: {fileID: 2700636994717061331, guid: 462b77b077c094ed6af715994d3f0721, type: 3}
   newPointThreshold: 0.2
 --- !u!120 &3060578252687222177

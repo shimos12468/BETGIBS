@@ -23,6 +23,15 @@ public class DoodleController : MonoBehaviour
         if(instance==null)instance= this; 
         else { Destroy(gameObject); }
     }
+    private void Start()
+    {
+        GameObject[]GreenAreas= GameObject.FindGameObjectsWithTag("GreenArea");
+
+        foreach(var area in GreenAreas)
+        {
+            _greenAreas.Add(area.GetComponent<BoxCollider2D>());
+        }
+    }
 
     private void OnDestroy()
     {
@@ -106,6 +115,7 @@ public class DoodleController : MonoBehaviour
             print(mousePosition1);
             if (bounds.Contains(mousePosition1))
             {
+
                 return true;
             }
         }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7882185043829672598}
   m_Layer: 0
   m_Name: Bow
-  m_TagString: Untagged
+  m_TagString: Bow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,10 +25,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7882185043829492445}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7141577, w: 0.6999849}
+  m_LocalRotation: {x: 0, y: 0, z: -0.714155, w: 0.69998753}
   m_LocalPosition: {x: 10, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.51, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9136646728018164084}
   - {fileID: 9136646729883142288}
@@ -108,11 +108,10 @@ MonoBehaviour:
   anchor: {fileID: 9136646728018164084}
   endAnchor: {fileID: 9136646728943333370}
   startAnchor: {fileID: 9136646729883142288}
-  shootingForce: 20
+  shootingVelocity: 20
   firstLine: {fileID: 9136646729296953151}
   secondLine: {fileID: 9136646728929828978}
-  timeOfShooting: 1.12
-  shoot: 1
+  timeOfShooting: 0.2
 --- !u!1 &9136646728018164085
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,14 +135,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9136646728018164085}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.57, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.570001, y: 0.0000009834766, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7882185043829672599}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &9136646728200875738
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,8 +279,8 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 12.477899, y: -0.5687773, z: 0}
-  - {x: 9.988576, y: -0.56988555, z: 0}
+  - {x: 11.490875, y: -1.6348865, z: 0}
+  - {x: 10.403236, y: -2.1877007, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -442,8 +441,8 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 7.502681, y: -0.40002823, z: 0}
-  - {x: 9.988576, y: -0.56988555, z: 0}
+  - {x: 9.296626, y: -2.7022045, z: 0}
+  - {x: 10.403236, y: -2.1877007, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1

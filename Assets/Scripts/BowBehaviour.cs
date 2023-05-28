@@ -37,11 +37,18 @@ public class BowBehaviour : MonoBehaviour
     private void OnDrawGizmos()
     {
         anchor.position = startAnchor.position;
+       
+        SetPositions();
+    }
+
+
+
+    public void SetPositions()
+    {
         firstLine.SetPosition(0, firstLine.transform.position);
         firstLine.SetPosition(1, anchor.position);
         secondLine.SetPosition(0, secondLine.transform.position);
         secondLine.SetPosition(1, anchor.position);
-
     }
 
     void Update()
@@ -51,6 +58,7 @@ public class BowBehaviour : MonoBehaviour
             if (instantiateArrow)
             {
                 instantiateArrow = false;
+                print("hello0");
                 Arrow = Instantiate(arrowPrefab);
                 Arrow.transform.right = anchor.up;
                 Arrow.transform.position = anchor.transform.position;
@@ -69,10 +77,7 @@ public class BowBehaviour : MonoBehaviour
             var percentage = (currentTime/timeOfShooting);
             anchor.position = Vector3.MoveTowards(startAnchor.position, endAnchor.position, percentage);
             Arrow.transform.position = anchor.position;
-            firstLine.SetPosition(0, firstLine.transform.position);
-            firstLine.SetPosition(1, anchor.position);
-            secondLine.SetPosition(0, secondLine.transform.position);
-            secondLine.SetPosition(1, anchor.position);
+            SetPositions();
         }
     }
 
