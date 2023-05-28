@@ -46,8 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineRenderer: {fileID: 3060578252687222177}
-  _greenAreas:
-  - {fileID: 0}
+  _greenAreas: []
   _meshes: []
   lengthLimit: 100
   totalDrawnPointsLimit: 1000

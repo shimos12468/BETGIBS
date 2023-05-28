@@ -2128,6 +2128,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: camera
       objectReference: {fileID: 0}
+    - target: {fileID: 4485488363512735443, guid: 9413ea61d4c51754fb61094a7d69f680, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485488363512735443, guid: 9413ea61d4c51754fb61094a7d69f680, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485488363512735443, guid: 9413ea61d4c51754fb61094a7d69f680, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4485488363512735444, guid: 9413ea61d4c51754fb61094a7d69f680, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2179,6 +2191,20 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 4485488363512735443, guid: 9413ea61d4c51754fb61094a7d69f680, type: 3}
   m_PrefabInstance: {fileID: 1506997140}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1506997142 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4485488363512735441, guid: 9413ea61d4c51754fb61094a7d69f680, type: 3}
+  m_PrefabInstance: {fileID: 1506997140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!45 &1506997143
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506997142}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 6abe918ee1229b34f8557fc2a5a39825, type: 2}
 --- !u!1001 &1772683921
 PrefabInstance:
   m_ObjectHideFlags: 0
