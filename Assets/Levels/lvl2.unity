@@ -2285,6 +2285,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 8251467963572998595, guid: 248c258c623e80d41a4f0b5de4d31e35, type: 3}
   shootingVelocity: 15
+  cooldown: 4
+  time: 0
 --- !u!4 &835909454908504998
 Transform:
   m_ObjectHideFlags: 0
@@ -2334,6 +2336,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 8251467963572998595, guid: 248c258c623e80d41a4f0b5de4d31e35, type: 3}
   shootingVelocity: 15
+  cooldown: 4
+  time: 0
 --- !u!212 &835909454908505017
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2482,6 +2486,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 8251467963572998595, guid: 248c258c623e80d41a4f0b5de4d31e35, type: 3}
   shootingVelocity: 15
+  cooldown: 4
+  time: 0
 --- !u!212 &835909454954078417
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8760,7 +8766,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 904df345336a6374a9afe2847fab9e8d, type: 2}
+  - {fileID: 2100000, guid: 3c9f931df63777e499184717c236723f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8907,7 +8913,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 904df345336a6374a9afe2847fab9e8d, type: 2}
+  - {fileID: 2100000, guid: 3c9f931df63777e499184717c236723f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
