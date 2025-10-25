@@ -47,7 +47,7 @@ public class DoodleController : MonoBehaviour
         lineRenderer.GetPositions(points);
         line.GetComponent<MeshFilter>().mesh = mesh;
 
-        line.GetComponent<EdgeCollider2D>().points = points.ToList().ConvertAll(p => new Vector2(p.x, p.y)).Skip(1).Take(points.Length-2).ToArray();
+        line.GetComponent<EdgeCollider2D>().points = points.ToList().ConvertAll(p => new Vector2(p.x, p.y)).Take(points.Length-2).ToArray();
         line.GetComponent<EdgeCollider2D>().edgeRadius = lineRenderer.startWidth / 2.0f;
         for (int i = 1; i < points.Length - 1; i++)
         {

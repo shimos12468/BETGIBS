@@ -12,7 +12,7 @@ public class ArrowBehaviour : MonoBehaviour
     {
         if (move)
         {
-            transform.right = GetComponent<Rigidbody2D>().velocity.normalized;
+            transform.right = GetComponent<Rigidbody2D>().linearVelocity.normalized;
         }
     }
 

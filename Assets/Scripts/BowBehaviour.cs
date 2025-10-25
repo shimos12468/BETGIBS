@@ -62,7 +62,7 @@ public class BowBehaviour : MonoBehaviour
                 currentTime = 0;
                 shots--;
                 Arrow.GetComponent<ArrowBehaviour>().StartMovement();
-                Arrow.GetComponent<Rigidbody2D>().velocity = Arrow.transform.right * shootingVelocity;
+                Arrow.GetComponent<Rigidbody2D>().linearVelocity = Arrow.transform.right * shootingVelocity;
                 instantiateArrow = true;
             }
             

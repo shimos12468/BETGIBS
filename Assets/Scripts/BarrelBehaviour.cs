@@ -27,6 +27,6 @@ public class BarrelBehaviour : MonoBehaviour
     public void SetArrow(GameObject Arrow)
     {
         Arrow.GetComponent<ArrowBehaviour>().StartMovement();
-        Arrow.GetComponent<Rigidbody2D>().velocity = transform.up * shootingVelocity;
+        Arrow.GetComponent<Rigidbody2D>().linearVelocity = transform.up * shootingVelocity;
     }
 }
