@@ -61,7 +61,9 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(NextLevelName);
+        AutoLoad.instance.LoadNextLevel(NextLevelName);
+
+        //UnityEngine.SceneManagement.SceneManager.LoadScene(NextLevelName);
     }
 
     public void CheckWin() {

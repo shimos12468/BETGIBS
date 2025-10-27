@@ -1,0 +1,5 @@
+D:/Mahmoud/Local game/BETGIBS/.utmp/RelWithDebInfo/3o1g44b5/armeabi-v7a/CMakeFiles/edit_cache.dir
+D:/Mahmoud/Local game/BETGIBS/.utmp/RelWithDebInfo/3o1g44b5/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+D:/Mahmoud/Local game/BETGIBS/.utmp/RelWithDebInfo/3o1g44b5/armeabi-v7a/FramePacing/CMakeFiles/swappywrapper.dir
+D:/Mahmoud/Local game/BETGIBS/.utmp/RelWithDebInfo/3o1g44b5/armeabi-v7a/FramePacing/CMakeFiles/edit_cache.dir
+D:/Mahmoud/Local game/BETGIBS/.utmp/RelWithDebInfo/3o1g44b5/armeabi-v7a/FramePacing/CMakeFiles/rebuild_cache.dir

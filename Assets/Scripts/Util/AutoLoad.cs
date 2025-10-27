@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -54,5 +55,13 @@ public class AutoLoad : MonoBehaviour
         GameObject.FindGameObjectWithTag("Settings").transform.GetChild(1).gameObject.SetActive(true);
     }
 
-
+    public void LoadNextLevel(string nextLevelName)
+    {
+        if (nextLevelName == "Menu")
+        {
+            settings.gameObject.SetActive(false);
+            pause.gameObject.SetActive(false);
+        }
+        SceneManager.LoadSceneAsync(nextLevelName);
+    }
 }

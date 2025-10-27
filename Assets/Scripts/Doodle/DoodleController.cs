@@ -74,16 +74,27 @@ public class DoodleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 position = Vector3.zero;
+        #if UNITY_ANDROID || UNITY_IOS
+                if (Input.touchCount > 0)
+                {
+                    position = Input.GetTouch(0).position;
+                }
+        #endif 
+        #if UNITY_EDITOR
+        position = Input.mousePosition; 
+        #endif
+        
+        mousePosition = Camera.main.ScreenToWorldPoint(position);
         mousePosition.z = 0f;
 
-        if (Input.GetMouseButtonDown(0) && CanDraw())
+        if ((Input.GetMouseButtonDown(0)|| Input.touchCount > 0) && CanDraw())
         {
             _dragging = true;
             lineRenderer.positionCount++;
             lineRenderer.SetPosition(lineRenderer.positionCount - 1, mousePosition);
         }
-        else if (Input.GetMouseButton(0) && _dragging && CanDraw())
+        else if ((Input.GetMouseButton(0)|| Input.touchCount > 0) && _dragging && CanDraw())
         {
             if (Vector3.Distance(lineRenderer.GetPosition(lineRenderer.positionCount - 1), mousePosition) > newPointThreshold)
             {
@@ -91,7 +102,7 @@ public class DoodleController : MonoBehaviour
                 lineRenderer.SetPosition(lineRenderer.positionCount - 1, mousePosition);
             }
         }
-        else if (Input.GetMouseButtonUp(0) && _dragging)
+        else if ((Input.GetMouseButtonUp(0) || Input.touchCount > 0) && _dragging)
         {
             _dragging = false;
             if (lineRenderer.positionCount > 1)
