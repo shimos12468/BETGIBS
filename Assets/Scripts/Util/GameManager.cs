@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        AutoLoad.instance.LoadNextLevel(NextLevelName);
+        AutoLoad.instance.LoadNextLevel();
 
         //UnityEngine.SceneManagement.SceneManager.LoadScene(NextLevelName);
     }

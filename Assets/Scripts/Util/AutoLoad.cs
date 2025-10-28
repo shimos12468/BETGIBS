@@ -13,7 +13,14 @@ public class AutoLoad : MonoBehaviour
 
     public static AutoLoad instance;
 
+    [Serializable]
+    public struct LevelData
+    {
+        public Level levelSO;
+        public string levelName;
+    }
 
+    public List<LevelData> levelsData;
     private void Awake()
     {
         if (instance == null) {
@@ -63,5 +70,52 @@ public class AutoLoad : MonoBehaviour
             pause.gameObject.SetActive(false);
         }
         SceneManager.LoadSceneAsync(nextLevelName);
+    }
+
+    internal void LoadLevelByKey(string levelName)
+    {
+        print("Loading level: " + levelName);
+        LevelData levelToLoad = new LevelData();
+
+        for (int i = 0; i < levelsData.Count; i++)
+        {
+            if (levelName == levelsData[i].levelSO.levelkey)
+            {
+                levelToLoad = levelsData[i];
+                break;
+            }
+        }
+
+
+        int level = levelToLoad.levelSO.currentIndex;
+
+        if(level>= levelToLoad.levelSO.levels.Count)
+        {
+            level = 0;
+            levelToLoad.levelSO.currentIndex = 0;
+        }
+
+        SceneManager.LoadSceneAsync(levelToLoad.levelSO.levels[level]);
+        PlayerPrefs.SetString("LevelName", levelName);
+
+    }
+
+    public void LoadNextLevel()
+    {
+        print("Loading level by key");
+        string key= PlayerPrefs.GetString("LevelName");
+
+        for(int i = 0; i < levelsData.Count; i++)
+        {
+            if (key == levelsData[i].levelSO.levelkey)
+            {
+                levelsData[i].levelSO.currentIndex++;
+                break;
+            }
+        }
+
+        LoadLevelByKey(key);
+
+
     }
 }

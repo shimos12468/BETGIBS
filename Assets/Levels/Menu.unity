@@ -2587,9 +2587,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c2097366da639c438be8d699e64d52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextLevel: Tutorial
+  NextLevel: LevelsMenu
   settings: {fileID: 695313584}
   pause: {fileID: 940749352}
+  levelsData:
+  - levelSO: {fileID: 11400000, guid: acf14e0cf4900d449a1c0bfad83e4ed6, type: 2}
+    levelName: SM
+    currentScore: 0
 --- !u!4 &519538708
 Transform:
   m_ObjectHideFlags: 0
