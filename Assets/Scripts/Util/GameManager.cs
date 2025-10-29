@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject PassedText;
     public GameObject FailedText;
 
-
+    int health;
     // Start is called before the first frame update
     void Awake()
     {
@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-
+        health= PlayerPrefs.GetInt("PlayerHealth", 3);
         bows = GameObject.FindObjectsOfType<BowBehaviour>();
         barrels = GameObject.FindObjectsOfType<BarrelBehaviour>();
         ragdolls = GameObject.FindObjectsOfType<RagdollController>();
@@ -80,11 +80,32 @@ public class GameManager : MonoBehaviour
         else {
             FailedText.SetActive(true);
             Debug.Log("Herer");
-            Invoke("ResetLevel", 2.0f);
+
+            health--;
+            PlayerPrefs.SetInt("PlayerHealth", health);
+            if (health > 0)
+            {
+                Invoke("ResetLevel", 2.0f);
+            }
+            else
+            {
+                Invoke("GoToMainMenu", 2.0f);
+            }
+            //should check health and if is less than zero or zero go to main menu and add timer 
         }
     }
 
+    
+
     public void ResetLevel() {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        //UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        AutoLoad.instance.LoadNextLevel(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
+
+    public void GoToMainMenu()
+    {
+
+        AutoLoad.instance.PlayerLost("Menu");
+    }
+
 }

@@ -9,6 +9,7 @@ TagManager:
   - ragdoll
   - GreenArea
   - Settings
+  - StartButton
   layers:
   - Default
   - TransparentFX

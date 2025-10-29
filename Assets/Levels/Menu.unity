@@ -2593,7 +2593,6 @@ MonoBehaviour:
   levelsData:
   - levelSO: {fileID: 11400000, guid: acf14e0cf4900d449a1c0bfad83e4ed6, type: 2}
     levelName: SM
-    currentScore: 0
 --- !u!4 &519538708
 Transform:
   m_ObjectHideFlags: 0
@@ -4545,7 +4544,7 @@ GameObject:
   - component: {fileID: 1127641989}
   m_Layer: 5
   m_Name: Start
-  m_TagString: Untagged
+  m_TagString: StartButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

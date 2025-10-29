@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -42,16 +43,65 @@ public class AutoLoad : MonoBehaviour
         pause.onClick.AddListener(OpenPauseMenu);
         pause.gameObject.SetActive(false);
 
+        canPlay = PlayerPrefs.GetInt("CanPlay", 1) == 1 ? true : false;
+
     }
 
     public async void LoadFirstLevel()
     {
-        await SceneManager.LoadSceneAsync(NextLevel);
-        settings.gameObject.SetActive(true);
-        pause.gameObject.SetActive(true);
+
+        if (!canPlay)
+        {
+            return;
+        }
+        if (canPlay)
+        {
+            await SceneManager.LoadSceneAsync(NextLevel);
+            settings.gameObject.SetActive(true);
+            pause.gameObject.SetActive(true);
+        }
+
+        
+        
 
     }
+    private void Update()
+    {
+        if (!canPlay)
+        {
 
+            //check scene
+
+
+            //make precentage show but I am not sure how to do that yet
+            GameObject.FindGameObjectWithTag("StartButton").GetComponent<Button>().interactable = false;
+            
+            
+            string untilTime = PlayerPrefs.GetString("HealthUntil");
+            DateTime current = DateTime.UtcNow;
+            print("Current time: " + current.ToString());
+            DateTime until = DateTime.Parse(untilTime);
+            print("Until time: " + until.ToString());
+
+            if (current < until)
+            {
+                print("not yet");
+            }
+            else
+            {
+                print("can play now");
+                canPlay = true;
+                PlayerPrefs.SetInt("CanPlay", 1);
+                PlayerPrefs.DeleteKey("HealthUntil");
+                PlayerPrefs.SetInt("PlayerHealth", 3);
+
+
+                GameObject.FindGameObjectWithTag("StartButton").GetComponent<Button>().interactable = true;
+            }
+
+
+        }
+    }
     public void OpenSettings()
     {
         GameObject.FindGameObjectWithTag("Settings").transform.GetChild(0).gameObject.SetActive(true);
@@ -66,13 +116,16 @@ public class AutoLoad : MonoBehaviour
     {
         if (nextLevelName == "Menu")
         {
+            
+
             settings.gameObject.SetActive(false);
             pause.gameObject.SetActive(false);
         }
         SceneManager.LoadSceneAsync(nextLevelName);
     }
 
-    internal void LoadLevelByKey(string levelName)
+   
+    public void LoadLevelByKey(string levelName)
     {
         print("Loading level: " + levelName);
         LevelData levelToLoad = new LevelData();
@@ -118,4 +171,22 @@ public class AutoLoad : MonoBehaviour
 
 
     }
+
+    internal void PlayerLost(string v)
+    {
+        if (PlayerPrefs.HasKey("PlayerHealth"))
+        {
+            DateTime until = DateTime.UtcNow.Add(TimeSpan.FromMinutes(5));
+            
+            PlayerPrefs.SetString("HealthUntil", until.ToString());
+            canPlay = false;
+            PlayerPrefs.SetInt("CanPlay", 0);
+
+        }
+
+        LoadNextLevel(v);
+    }
+    
+    bool canPlay = true;
+  
 }
