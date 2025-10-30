@@ -82,6 +82,10 @@ public class GameManager : MonoBehaviour
             Debug.Log("Herer");
 
             health--;
+
+            //invoke health event here
+            AutoLoad.instance.HealthLost(health);
+
             PlayerPrefs.SetInt("PlayerHealth", health);
             if (health > 0)
             {

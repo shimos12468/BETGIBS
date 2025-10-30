@@ -9,9 +9,9 @@ using UnityEngine.UI;
 public class AutoLoad : MonoBehaviour
 {
     public string NextLevel;
-    public Button settings;
-    public Button pause;
-
+    public Button settingsButton;
+    public Button pauseButon;
+    public Slider HealthSlider;
     public static AutoLoad instance;
 
     [Serializable]
@@ -37,11 +37,13 @@ public class AutoLoad : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         
 
-        settings.onClick.AddListener(OpenSettings);
-        settings.gameObject.SetActive(false);
+        settingsButton.onClick.AddListener(OpenSettings);
+        settingsButton.gameObject.SetActive(false);
 
-        pause.onClick.AddListener(OpenPauseMenu);
-        pause.gameObject.SetActive(false);
+        pauseButon.onClick.AddListener(OpenPauseMenu);
+        pauseButon.gameObject.SetActive(false);
+
+        HealthSlider.gameObject.SetActive(false);
 
         canPlay = PlayerPrefs.GetInt("CanPlay", 1) == 1 ? true : false;
 
@@ -57,8 +59,12 @@ public class AutoLoad : MonoBehaviour
         if (canPlay)
         {
             await SceneManager.LoadSceneAsync(NextLevel);
-            settings.gameObject.SetActive(true);
-            pause.gameObject.SetActive(true);
+            settingsButton.gameObject.SetActive(true);
+            pauseButon.gameObject.SetActive(true);
+            HealthSlider.value = PlayerPrefs.GetInt("PlayerHealth");
+            HealthSlider.gameObject.SetActive(true);
+
+
         }
 
         
@@ -94,8 +100,6 @@ public class AutoLoad : MonoBehaviour
                 PlayerPrefs.SetInt("CanPlay", 1);
                 PlayerPrefs.DeleteKey("HealthUntil");
                 PlayerPrefs.SetInt("PlayerHealth", 3);
-
-
                 GameObject.FindGameObjectWithTag("StartButton").GetComponent<Button>().interactable = true;
             }
 
@@ -116,10 +120,10 @@ public class AutoLoad : MonoBehaviour
     {
         if (nextLevelName == "Menu")
         {
-            
 
-            settings.gameObject.SetActive(false);
-            pause.gameObject.SetActive(false);
+            HealthSlider.gameObject.SetActive(false);
+            settingsButton.gameObject.SetActive(false);
+            pauseButon.gameObject.SetActive(false);
         }
         SceneManager.LoadSceneAsync(nextLevelName);
     }
@@ -186,7 +190,14 @@ public class AutoLoad : MonoBehaviour
 
         LoadNextLevel(v);
     }
-    
+
+
+
+    internal void HealthLost(int health)
+    {
+       HealthSlider.value = health;
+    }
+
     bool canPlay = true;
   
 }
