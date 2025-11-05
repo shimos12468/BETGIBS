@@ -2729,6 +2729,9 @@ GameObject:
   m_Component:
   - component: {fileID: 519538708}
   - component: {fileID: 519538707}
+  - component: {fileID: 519538709}
+  - component: {fileID: 519538710}
+  - component: {fileID: 519538711}
   m_Layer: 0
   m_Name: sceneManager
   m_TagString: Untagged
@@ -2752,6 +2755,7 @@ MonoBehaviour:
   settingsButton: {fileID: 695313584}
   pauseButon: {fileID: 940749352}
   HealthSlider: {fileID: 197620350}
+  maxHealth: 3
   levelsData:
   - levelSO: {fileID: 11400000, guid: acf14e0cf4900d449a1c0bfad83e4ed6, type: 2}
     levelName: SM
@@ -2771,6 +2775,44 @@ Transform:
   - {fileID: 1072514315}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519538709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519538706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ad689bcd69b2645978a23208994f79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueIdentifier: 952b358b-f417-42b0-b04a-9d2ef6e6eeb0
+--- !u!114 &519538710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519538706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dcc70b26864084f93530c9ebbd5863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeInTime: 0
+--- !u!114 &519538711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519538706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40d5726d52db3414ebe7c397c5fcdd6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &625261548
 GameObject:
   m_ObjectHideFlags: 0

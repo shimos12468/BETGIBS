@@ -1,0 +1,5 @@
+D:/Protofolio/Github/BETGIBS/.utmp/RelWithDebInfo/103o1d5r/armeabi-v7a/CMakeFiles/edit_cache.dir
+D:/Protofolio/Github/BETGIBS/.utmp/RelWithDebInfo/103o1d5r/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+D:/Protofolio/Github/BETGIBS/.utmp/RelWithDebInfo/103o1d5r/armeabi-v7a/FramePacing/CMakeFiles/swappywrapper.dir
+D:/Protofolio/Github/BETGIBS/.utmp/RelWithDebInfo/103o1d5r/armeabi-v7a/FramePacing/CMakeFiles/edit_cache.dir
+D:/Protofolio/Github/BETGIBS/.utmp/RelWithDebInfo/103o1d5r/armeabi-v7a/FramePacing/CMakeFiles/rebuild_cache.dir

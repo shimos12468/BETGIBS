@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        health= PlayerPrefs.GetInt("PlayerHealth", 3);
+        health= (int)FindObjectOfType<AutoLoad>().HealthSlider.value;
         bows = GameObject.FindObjectsOfType<BowBehaviour>();
         barrels = GameObject.FindObjectsOfType<BarrelBehaviour>();
         ragdolls = GameObject.FindObjectsOfType<RagdollController>();
@@ -75,6 +75,7 @@ public class GameManager : MonoBehaviour
         if (won) {
             PassedText.SetActive(true);
             Debug.Log("Herer");
+
             Invoke("LoadNextLevel", 2.0f);
         }
         else {
@@ -85,8 +86,6 @@ public class GameManager : MonoBehaviour
 
             //invoke health event here
             AutoLoad.instance.HealthLost(health);
-
-            PlayerPrefs.SetInt("PlayerHealth", health);
             if (health > 0)
             {
                 Invoke("ResetLevel", 2.0f);

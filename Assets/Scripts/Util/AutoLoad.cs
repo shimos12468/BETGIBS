@@ -1,3 +1,6 @@
+using Newtonsoft.Json;
+using RPG.Saving;
+using RPG.SceneManagment;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,14 +8,18 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
-public class AutoLoad : MonoBehaviour
+public class AutoLoad : MonoBehaviour , ISaveable
 {
     public string NextLevel;
     public Button settingsButton;
     public Button pauseButon;
     public Slider HealthSlider;
     public static AutoLoad instance;
+    
+    public int maxHealth = 3;
+    bool canPlay = true;
+
+
 
     [Serializable]
     public struct LevelData
@@ -31,11 +38,14 @@ public class AutoLoad : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+
+        GetComponent<SavingWrapper>().Load();
     }
     public void Start()
     {
         DontDestroyOnLoad(gameObject);
-        
+
 
         settingsButton.onClick.AddListener(OpenSettings);
         settingsButton.gameObject.SetActive(false);
@@ -43,10 +53,20 @@ public class AutoLoad : MonoBehaviour
         pauseButon.onClick.AddListener(OpenPauseMenu);
         pauseButon.gameObject.SetActive(false);
 
+        SetupHealth();
+
+
+    }
+
+    private void SetupHealth()
+    {
         HealthSlider.gameObject.SetActive(false);
 
-        canPlay = PlayerPrefs.GetInt("CanPlay", 1) == 1 ? true : false;
+        HealthSlider.maxValue = maxHealth;
 
+        //HealthSlider.value = PlayerPrefs.GetInt("PlayerHealth", maxHealth);
+
+        //canPlay = PlayerPrefs.GetInt("CanPlay", 1) == 1 ? true : false;
     }
 
     public async void LoadFirstLevel()
@@ -61,7 +81,6 @@ public class AutoLoad : MonoBehaviour
             await SceneManager.LoadSceneAsync(NextLevel);
             settingsButton.gameObject.SetActive(true);
             pauseButon.gameObject.SetActive(true);
-            HealthSlider.value = PlayerPrefs.GetInt("PlayerHealth");
             HealthSlider.gameObject.SetActive(true);
 
 
@@ -78,7 +97,11 @@ public class AutoLoad : MonoBehaviour
 
             //check scene
 
-
+            if(SceneManager.GetActiveScene().name != "Menu")
+            { 
+                return;
+            }
+            
             //make precentage show but I am not sure how to do that yet
             GameObject.FindGameObjectWithTag("StartButton").GetComponent<Button>().interactable = false;
             
@@ -97,14 +120,15 @@ public class AutoLoad : MonoBehaviour
             {
                 print("can play now");
                 canPlay = true;
-                PlayerPrefs.SetInt("CanPlay", 1);
                 PlayerPrefs.DeleteKey("HealthUntil");
-                PlayerPrefs.SetInt("PlayerHealth", 3);
                 GameObject.FindGameObjectWithTag("StartButton").GetComponent<Button>().interactable = true;
             }
 
 
         }
+
+       
+
     }
     public void OpenSettings()
     {
@@ -143,20 +167,14 @@ public class AutoLoad : MonoBehaviour
             }
         }
 
-
-        int level = levelToLoad.levelSO.currentIndex;
-
-        if(level>= levelToLoad.levelSO.levels.Count)
-        {
-            level = 0;
-            levelToLoad.levelSO.currentIndex = 0;
-        }
+        int level = GetNextLevelIndex(levelToLoad);
 
         SceneManager.LoadSceneAsync(levelToLoad.levelSO.levels[level]);
         PlayerPrefs.SetString("LevelName", levelName);
 
     }
 
+   
     public void LoadNextLevel()
     {
         print("Loading level by key");
@@ -171,6 +189,7 @@ public class AutoLoad : MonoBehaviour
             }
         }
 
+        LevelComplete();
         LoadLevelByKey(key);
 
 
@@ -178,16 +197,12 @@ public class AutoLoad : MonoBehaviour
 
     internal void PlayerLost(string v)
     {
-        if (PlayerPrefs.HasKey("PlayerHealth"))
-        {
-            DateTime until = DateTime.UtcNow.Add(TimeSpan.FromMinutes(5));
-            
-            PlayerPrefs.SetString("HealthUntil", until.ToString());
-            canPlay = false;
-            PlayerPrefs.SetInt("CanPlay", 0);
+        DateTime until = DateTime.UtcNow.Add(TimeSpan.FromMinutes(0.1));
 
-        }
-
+        PlayerPrefs.SetString("HealthUntil", until.ToString());
+        canPlay = false;
+        HealthSlider.value = maxHealth;
+        GetComponent<SavingWrapper>().Save();
         LoadNextLevel(v);
     }
 
@@ -198,6 +213,69 @@ public class AutoLoad : MonoBehaviour
        HealthSlider.value = health;
     }
 
-    bool canPlay = true;
   
+
+    private static int GetNextLevelIndex(LevelData levelToLoad)
+    {
+        int level = levelToLoad.levelSO.currentIndex;
+
+        if (level >= levelToLoad.levelSO.levels.Count)
+        {
+            level = 0;
+            levelToLoad.levelSO.currentIndex = 0;
+        }
+
+        return level;
+    }
+
+
+    [Serializable]
+    struct SaveData
+    {
+        public List<LevelData> Levels;
+        public bool canplay;
+        public int currentHealth;
+    }
+
+
+    public object CaptureState()
+    {
+
+        SaveData data = new SaveData();
+        data.Levels = levelsData;
+        data.canplay = canPlay;
+        data.currentHealth = (int)HealthSlider.value;
+
+        string d = JsonConvert.SerializeObject(data);
+
+        return d;
+
+    }
+
+    public void RestoreState(object state)
+    {
+        SaveData data= JsonConvert.DeserializeObject<SaveData>((string)state);
+        
+        levelsData = data.Levels;
+        canPlay = data.canplay;
+        HealthSlider.value = data.currentHealth;
+
+        print("Restored state");
+        print("Can play: " + canPlay);
+        print("Current Health: " + HealthSlider.value);
+        print("Levels count: " + levelsData.Count);
+        print("First level index: " + levelsData[0].levelSO.currentIndex);
+    }
+
+
+    private void OnApplicationQuit()
+    {
+
+        GetComponent<SavingWrapper>().Save();
+    }
+
+    internal void LevelComplete()
+    {
+        GetComponent<SavingWrapper>().Save();
+    }
 }
