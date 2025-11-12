@@ -784,7 +784,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -320.9, y: -153.5}
+  m_AnchoredPosition: {x: -320.9, y: -137.2}
   m_SizeDelta: {x: 100, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &576187549
@@ -5149,11 +5149,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9136646728018164084, guid: 9a8cd8dfed6d6494b85e4490172e4ec8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5699961
+      value: 2.2100048
       objectReference: {fileID: 0}
     - target: {fileID: 9136646728018164084, guid: 9a8cd8dfed6d6494b85e4490172e4ec8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.21000035
       objectReference: {fileID: 0}
     - target: {fileID: 9136646728929828978, guid: 9a8cd8dfed6d6494b85e4490172e4ec8, type: 3}
       propertyPath: m_Positions.Array.data[0].x
@@ -5169,11 +5169,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9136646728929828978, guid: 9a8cd8dfed6d6494b85e4490172e4ec8, type: 3}
       propertyPath: m_Positions.Array.data[1].x
-      value: 20.658298
+      value: 20.9699
       objectReference: {fileID: 0}
     - target: {fileID: 9136646728929828978, guid: 9a8cd8dfed6d6494b85e4490172e4ec8, type: 3}
       propertyPath: m_Positions.Array.data[1].y
-      value: -2.64
+      value: -2.6799002
       objectReference: {fileID: 0}
     - target: {fileID: 9136646728929828978, guid: 9a8cd8dfed6d6494b85e4490172e4ec8, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
@@ -5205,11 +5205,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9136646729296953151, guid: 9a8cd8dfed6d6494b85e4490172e4ec8, type: 3}
       propertyPath: m_Positions.Array.data[1].x
-      value: 20.658298
+      value: 20.9699
       objectReference: {fileID: 0}
     - target: {fileID: 9136646729296953151, guid: 9a8cd8dfed6d6494b85e4490172e4ec8, type: 3}
       propertyPath: m_Positions.Array.data[1].y
-      value: -2.64
+      value: -2.6799002
       objectReference: {fileID: 0}
     - target: {fileID: 9136646729296953151, guid: 9a8cd8dfed6d6494b85e4490172e4ec8, type: 3}
       propertyPath: m_Parameters.colorGradient.atime1
