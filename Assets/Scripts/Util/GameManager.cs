@@ -28,11 +28,11 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        health= (int)FindObjectOfType<AutoLoad>().HealthSlider.value;
         bows = GameObject.FindObjectsOfType<BowBehaviour>();
         barrels = GameObject.FindObjectsOfType<BarrelBehaviour>();
         ragdolls = GameObject.FindObjectsOfType<RagdollController>();
 
+        health= (int)FindObjectOfType<AutoLoad>().HealthSlider.value;
 
         EnableDrawMode();
     }
