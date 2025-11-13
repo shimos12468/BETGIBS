@@ -1,0 +1,5 @@
+G:/work/Amaan_Studio/15_The saver/Env/Amaan_Hero/08_G_En/00_unity/BETGIBS/.utmp/RelWithDebInfo/2d5m1qz1/armeabi-v7a/CMakeFiles/edit_cache.dir
+G:/work/Amaan_Studio/15_The saver/Env/Amaan_Hero/08_G_En/00_unity/BETGIBS/.utmp/RelWithDebInfo/2d5m1qz1/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+G:/work/Amaan_Studio/15_The saver/Env/Amaan_Hero/08_G_En/00_unity/BETGIBS/.utmp/RelWithDebInfo/2d5m1qz1/armeabi-v7a/FramePacing/CMakeFiles/swappywrapper.dir
+G:/work/Amaan_Studio/15_The saver/Env/Amaan_Hero/08_G_En/00_unity/BETGIBS/.utmp/RelWithDebInfo/2d5m1qz1/armeabi-v7a/FramePacing/CMakeFiles/edit_cache.dir
+G:/work/Amaan_Studio/15_The saver/Env/Amaan_Hero/08_G_En/00_unity/BETGIBS/.utmp/RelWithDebInfo/2d5m1qz1/armeabi-v7a/FramePacing/CMakeFiles/rebuild_cache.dir

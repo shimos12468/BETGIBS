@@ -266,8 +266,12 @@ PrefabInstance:
       value: camera (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4485488363512735443, guid: 9413ea61d4c51754fb61094a7d69f680, type: 3}
+      propertyPath: m_TargetDisplay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485488363512735443, guid: 9413ea61d4c51754fb61094a7d69f680, type: 3}
       propertyPath: orthographic size
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4485488363512735443, guid: 9413ea61d4c51754fb61094a7d69f680, type: 3}
       propertyPath: m_BackGroundColor.b
@@ -869,15 +873,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 628841932926507736, guid: 9c0331001ed58a442a26b1677e0bd825, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.22744627
+      value: 0.31589693
       objectReference: {fileID: 0}
     - target: {fileID: 628841932926507736, guid: 9c0331001ed58a442a26b1677e0bd825, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.22877637
+      value: 0.31203198
       objectReference: {fileID: 0}
     - target: {fileID: 628841932926507736, guid: 9c0331001ed58a442a26b1677e0bd825, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.26943803
+      value: 0.33637634
       objectReference: {fileID: 0}
     - target: {fileID: 628841932926507736, guid: 9c0331001ed58a442a26b1677e0bd825, type: 3}
       propertyPath: m_LocalPosition.x
@@ -885,7 +889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 628841932926507736, guid: 9c0331001ed58a442a26b1677e0bd825, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.5252
+      value: -3.4
       objectReference: {fileID: 0}
     - target: {fileID: 628841932926507736, guid: 9c0331001ed58a442a26b1677e0bd825, type: 3}
       propertyPath: m_ConstrainProportionsScale

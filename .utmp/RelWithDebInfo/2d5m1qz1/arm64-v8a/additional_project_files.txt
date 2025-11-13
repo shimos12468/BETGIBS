@@ -1,0 +1,1 @@
+G:\work\Amaan_Studio\15_The saver\Env\Amaan_Hero\08_G_En\00_unity\BETGIBS\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\FramePacing\UnitySwappyWrapper.h
